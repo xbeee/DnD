@@ -5,7 +5,7 @@ from core import *
 @api.route('/login', methods=['POST'])
 def Login():
     try:
-        name = request.form.get('name')
+        name = request.form['name']
     except:
         resp = {
             "errCode": 1,
