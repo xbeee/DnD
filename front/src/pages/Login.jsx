@@ -1,23 +1,27 @@
 import React, { useState } from "react";
 import axios from "axios";
 import useToken from "../hooks/useToken";
+import { Navigate } from "react-router-dom";
 
-const LoginForm: React.FC = () => {
+const LoginForm = () => {
 	const [name, setName] = React.useState("");
-	const [error, setError] = React.useState<string | null>(null);
-	const { setToken } = useToken();
+	const [error, setError] = React.useState(null);
+	const { setToken, getToken } = useToken();
+	const token = getToken();
 
-	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
-		console.log("Начал");
 		try {
 			const formData = new FormData();
 			formData.append("name", name);
 			const response = await axios.post("http://localhost:5000/login", formData);
-			console.log("Успешный ответ от сервера:", response.data);
+
 			setToken(response.data.access_token);
+
 			localStorage.setItem("name", name);
-		} catch (error: any) {
+
+			window.location.href = "/";
+		} catch (error) {
 			if (error.response) {
 				setError(error.response.data.errString);
 				console.error("Ошибка ответа от сервера:", error.response.data);
@@ -28,7 +32,7 @@ const LoginForm: React.FC = () => {
 		}
 	};
 
-	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const handleChange = (event) => {
 		setName(event.target.value);
 	};
 
