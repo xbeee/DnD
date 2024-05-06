@@ -16,7 +16,7 @@ api.config["JWT_SECRET_KEY"] = "super-secret"
 api.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(days=999999)
 jwt = JWTManager(api)
 # настройки БД
-api.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///code-rock.db'
+api.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
 api.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(api)
 # настройки сокетов
