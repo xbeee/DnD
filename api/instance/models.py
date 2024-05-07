@@ -17,6 +17,7 @@ class Heroes(db.Model):
     user = db.Column(db.Integer, nullable=False)
     name = db.Column(db.String(256), nullable=False)
     klas = db.Column(db.String(256), nullable=False)
+    can_spell = db.Column(db.Integer, nullable=False, default=0)
     race = db.Column(db.String(256), nullable=False)
     variant = db.Column(db.String(256), nullable=False)
     lvl = db.Column(db.Integer, nullable=False, default=1)
