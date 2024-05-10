@@ -4,8 +4,30 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
+		<link rel="stylesheet" href="../static/css/heroes.css" />
 	</head>
-	<body>
-		ты игрок
+	<body class="heroes">
+		<h2>Выбор персонажа</h2>
+		{% if not heroes %}
+		<h3>У тебя никого нет. <br />Просто нажми кнопочку снизу.. <br />чо как тупень</h3>
+		{% else %}
+		<div class="card_wrap">
+			{% for el in heroes %}
+			<form class="card">
+				<span>Имя: {{el['name']}}</span>
+				<span>Расса: {{el['race']}}</span>
+				<span>Класс: {{el['klas']}}</span>
+				<span>Уровень: {{el['lvl']}}</span>
+				<input type="hidden" name="name" value="" readonly />
+				<input type="hidden" name="race" value="" readonly />
+				<input type="hidden" name="klas" value="" readonly />
+				<input type="hidden" name="lvl" value="" readonly />
+				<button type="submit" class="submit">Выбрать</button>
+			</form>
+			{% endfor %}
+		</div>
+		{% endif %}
+		<button class="submit">Создать нового</button>
+		<img src="../img/tree.png" alt="" />
 	</body>
 </html>

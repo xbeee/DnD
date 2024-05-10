@@ -14,12 +14,12 @@ def Login():
     heroes = []
     if(user.role == 'User'):
         # если игрок
-        query = Heroes.query.filter_by(user=name).all()
+        query = Heroes.query.filter_by(user=user.id).all()
         for hero in query:
             heroes.append({
                 'name': hero.name,
                 'klas': hero.klas,
-                'race': hero.rase,
+                'race': hero.race,
                 'lvl': hero.lvl,
             })
         return render_template('heroes.html', heroes=heroes)

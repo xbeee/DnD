@@ -47,17 +47,6 @@ class KlassData(db.Model):
     max_spell = db.Column(db.Integer, nullable=False)
     max_mana = db.Column(db.String(256), nullable=False) #если несколько, то тут значения через запятую
     name_mana = db.Column(db.String(256), nullable=False)
-    disc = db.Column(db.Text, nullable=False)
-    skill = db.Column(db.Text, nullable=False)
-
-    def __repr__(self):
-        return '<profiles %r>' % self.id
-    
-class RaceData(db.Model): # одна расса - одна строка
-    id = db.Column(db.Integer, primary_key=True)
-    race = db.Column(db.String(256), nullable=False)
-    disc = db.Column(db.Text, nullable=False)
-    skill = db.Column(db.Text, nullable=False)
 
     def __repr__(self):
         return '<profiles %r>' % self.id
@@ -66,8 +55,6 @@ class VariantData(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     variant = db.Column(db.String(256), nullable=False)
     klas = db.Column(db.String(256), nullable=False)
-    disc = db.Column(db.Text, nullable=False)
-    skill = db.Column(db.Text, nullable=False)
 
     def __repr__(self):
         return '<profiles %r>' % self.id
