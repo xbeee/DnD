@@ -1,0 +1,48 @@
+@font-face {
+	font-family: Inter-B;
+	src: url("../font/Inter/Inter-Bold.otf");
+}
+* {
+	margin: 0;
+	color: inherit;
+	box-sizing: border-box;
+	font-family: Inter-B;
+	font-weight: 700;
+	color: #fff;
+}
+html {
+	font-size: 20px;
+}
+body {
+	background-color: #1e1a1a;
+}
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	gap: 15px;
+
+	width: 100%;
+	max-width: 500px;
+
+	input,
+	button {
+		width: 100%;
+		height: 45px;
+		border-radius: 10px;
+		border: none;
+		color: #1e1a1a;
+	}
+	input {
+		padding-left: 10px;
+	}
+	button {
+		background-color: #f1bf0f;
+		font-size: 1rem;
+	}
+}
+@media (max-width: 500px) {
+	html {
+		font-size: 12px;
+	}
+}

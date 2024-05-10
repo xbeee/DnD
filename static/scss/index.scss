@@ -1,0 +1,29 @@
+@import "block/_main.scss";
+
+.index {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	padding: 100px 90px;
+	gap: 50px;
+
+	background-image: url("../img/heartDragon.png");
+	background-repeat: no-repeat;
+	background-size: 80vw 45vw;
+	background-position: bottom right -90%;
+
+	h1 {
+		max-width: 600px;
+		font-size: 70px;
+	}
+
+	@media (max-width: 500px) {
+		background-size: 200vw 112vw;
+		background-position: bottom left 50%;
+
+		h1 {
+			font-size: 2.8rem;
+		}
+	}
+}
